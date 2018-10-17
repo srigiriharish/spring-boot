@@ -12,11 +12,14 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
     @PostMapping("/create")
+    @ResponseBody
+    @CrossOrigin
     public int create(@RequestBody Employee employee){
        return employeeService.create(employee);
     }
 
     @PostMapping("/createList")
+    @CrossOrigin
     public String create(@RequestBody List<Employee> employeeList){
          employeeService.createAll(employeeList);
          return "success";
@@ -27,6 +30,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/getAll")
+    @CrossOrigin
     public List<Employee> getAll(){
         return  employeeService.getAll();
 
